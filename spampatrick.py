@@ -39,12 +39,10 @@ def main():
 
         try:
             resp = requests.post(url, params=data)
+            print("Email sent from: {}\n{}\n".format(email, resp))
         except: 
             print("Exception was raised, waiting a minute, in case I'm accidentally DDOSing Patrick")
             time.sleep(60)
-            continue
-            
-        print("Email sent from: {}\n{}\n".format(email, resp))
 
 if __name__ == "__main__":
     main()
