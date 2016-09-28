@@ -26,12 +26,16 @@ while True:
     data['email'] = email
     data['message'] = message
     data['reason'] = random.choice(reasons)
-    resp = requests.post(url, params=data)
-    print("Email sent from: {}\n{}\n".format(email, resp))
+    try:
+        resp = requests.post(url, params=data)
+        print("Email sent from: {}\n{}\n".format(email, resp))
 
-    sleep_time = (random.random() * 10) / 20
-    for x in range(0, 20):
-        sys.stdout.write(".")
-        time.sleep(sleep_time)
-        sys.stdout.flush()
-    print("\n")
+        sleep_time = (random.random() * 10) / 20
+        for x in range(0, 20):
+            sys.stdout.write(".")
+            time.sleep(sleep_time)
+            sys.stdout.flush()
+        print("\n")
+    except: 
+        print("Exception was raised, waiting a minute, in case I'm accidentally DDOSing Patrick")
+        time.sleep(60)
