@@ -27,7 +27,7 @@ while True:
     data['message'] = message
     data['reason'] = random.choice(reasons)
     resp = requests.post(url, params=data)
-    print("Email sent from: {}\nResponse: {}\n".format(email, resp))
+    print("Email sent from: {}\n{}\n".format(email, resp))
 
     sleep_time = (random.random() * 10) / 20
     for x in range(0, 20):
