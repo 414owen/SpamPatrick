@@ -1,4 +1,4 @@
-import requests, time, random
+import requests, time, random, sys
 import itertools
 url="http://patrickoboyle.com/send_contact_form_email.php"
 
@@ -14,18 +14,24 @@ suffixes = ["com", "ie", "biz", "eu", "net", "io", "fr", "us", "co.uk", "au", "j
 reasons = ["Project", "Speaking", "Other"]
 
 while True:
-	suffix = random.choice(suffixes)
-	name = random.choice(names)
-	company = random.choice(companies)
-	email = "{}@{}.{}".format(name, company, suffix)
+    suffix = random.choice(suffixes)
+    name = random.choice(names)
+    company = random.choice(companies)
+    email = "{}@{}.{}".format(name, company, suffix)
 
-	company = company.capitalize()
-	name = name.capitalize()
-	message = base_message.format(company, company, name)
+    company = company.capitalize()
+    name = name.capitalize()
+    message = base_message.format(company, company, name)
 
-	data['email'] = email
-	data['message'] = message
-	data['reason'] = random.choice(reasons)
-	resp = requests.post(url, params=data)
-	print("Email sent from: {}\nResponse: {}\n".format(email, resp))
-	time.sleep(1 + random.random() * 10)
+    data['email'] = email
+    data['message'] = message
+    data['reason'] = random.choice(reasons)
+    resp = requests.post(url, params=data)
+    print("Email sent from: {}\nResponse: {}\n".format(email, resp))
+
+    sleep_time = (random.random() * 10) / 20
+    for x in range(0, 20):
+        sys.stdout.write(".")
+        time.sleep(sleep_time)
+        sys.stdout.flush()
+    print("\n")
