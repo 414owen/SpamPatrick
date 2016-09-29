@@ -1,4 +1,4 @@
-import requests, time, random, sys, itertools, stem
+import requests, time, random, sys, itertools
 
 def main():
     url="http://patrickoboyle.com/send_contact_form_email.php"
