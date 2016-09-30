@@ -1,1 +1,3 @@
-Project Speaking Other
+Project
+Speaking
+Other

@@ -9,19 +9,19 @@ def main():
 
     names = None
     with open("names.txt") as f:
-        names = f.read().split()
+        names = f.read().split("\n")
 
     companies = None
     with open("companies.txt") as f:
-        companies = f.read().split()
+        companies = f.read().split("\n")
 
     suffixes = None
     with open("suffixes.txt") as f:
-        suffixes = f.read().split()
+        suffixes = f.read().split("\n")
 
     reasons = None
     with open("reasons.txt") as f:
-        reasons = f.read().split()
+        reasons = f.read().split("\n")
 
     dots_to_print = 30
 
@@ -49,7 +49,7 @@ def main():
             time.sleep(sleep_time)
         print("\n")
         suffix = random.choice(suffixes)
-        email_name = random.choice(names)
+        email_name = random.choice(names).lower()
         email_company = random.choice(companies)
         email = "{}@{}.{}".format(email_name, email_company, suffix)
 
