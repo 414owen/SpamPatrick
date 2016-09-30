@@ -49,12 +49,10 @@ def main():
             time.sleep(sleep_time)
         print("\n")
         suffix = random.choice(suffixes)
-        email_name = random.choice(names).lower()
-        email_company = random.choice(companies)
-        email = "{}@{}.{}".format(email_name, email_company, suffix)
+        name = random.choice(names)
+        company = random.choice(companies)
+        email = "{}@{}.{}".format(name, company, suffix).lower().replace(" ", "")
 
-        name = email_name.capitalize()
-        company = email_company.capitalize()
         message = base_message.format(company, company, name)
 
         data['email'] = email
