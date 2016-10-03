@@ -18,7 +18,7 @@ urlencode() {
     LC_COLLATE=$old_lc_collate
 }
 
-echo "Enter a message for Patrick"
+echo "Enter a message for Patrick (reading directly from stdin, so press ctrl-d some to finish)"
 message=`urlencode "$(cat /dev/stdin)"`
 echo "$message"
 
